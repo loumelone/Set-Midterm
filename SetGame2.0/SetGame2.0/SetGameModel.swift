@@ -95,7 +95,7 @@ struct Game {
             }
         }
 
-        // inDeckCards.shuffle() - commented out for testing
+        inDeckCards.shuffle()
         for _ in 0..<12{
             faceUpCards.append(inDeckCards.removeFirst())
         }
