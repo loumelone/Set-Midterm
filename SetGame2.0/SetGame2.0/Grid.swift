@@ -46,6 +46,3 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View{
 
     
 
-// we would like our program to crash if we can't unwrap our int because this means something has gone terribly wrong
-// but we will not do this. we can use group to return some empty view if index is nil instead
-// gridlayout divides up the space, then we offer it up to subviews and position them at locations in gridlayout
