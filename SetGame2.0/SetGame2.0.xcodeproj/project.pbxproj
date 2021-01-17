@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41A02A5525B36D2E00D511E5 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A02A5425B36D2E00D511E5 /* Cardify.swift */; };
 		41CAAA4325AFA39E0050E984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CAAA4225AFA39E0050E984 /* AppDelegate.swift */; };
 		41CAAA4525AFA39E0050E984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CAAA4425AFA39E0050E984 /* SceneDelegate.swift */; };
 		41CAAA4925AFA39F0050E984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41CAAA4825AFA39F0050E984 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41A02A5425B36D2E00D511E5 /* Cardify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		41CAAA3F25AFA39E0050E984 /* SetGame2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGame2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CAAA4225AFA39E0050E984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41CAAA4425AFA39E0050E984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				41CAAA5725AFA3D70050E984 /* SetGameModel.swift */,
 				41CAAA5A25AFA4000050E984 /* SetGameView.swift */,
 				41CAAA6425AFA4910050E984 /* Grid.swift */,
+				41A02A5425B36D2E00D511E5 /* Cardify.swift */,
 				41CAAA6125AFA48C0050E984 /* GridLayout.swift */,
 				41CAAA5E25AFA4300050E984 /* SetViewModel.swift */,
 				41CAAA4825AFA39F0050E984 /* Assets.xcassets */,
@@ -159,6 +162,7 @@
 			files = (
 				41CAAA5F25AFA4300050E984 /* SetViewModel.swift in Sources */,
 				41CAAA5825AFA3D70050E984 /* SetGameModel.swift in Sources */,
+				41A02A5525B36D2E00D511E5 /* Cardify.swift in Sources */,
 				41CAAA4325AFA39E0050E984 /* AppDelegate.swift in Sources */,
 				41CAAA6225AFA48C0050E984 /* GridLayout.swift in Sources */,
 				41CAAA4525AFA39E0050E984 /* SceneDelegate.swift in Sources */,
