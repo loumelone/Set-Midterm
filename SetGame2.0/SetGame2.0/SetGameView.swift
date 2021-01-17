@@ -54,9 +54,10 @@ struct CardView: View {
             self.body(for: geometry.size)
         }
     }
+    
         @ViewBuilder
         private func body(for size: CGSize) -> some View {
-            VStack {
+            HStack {
                 ForEach(0..<count) { index in
                     ZStack{
                         if card.shape == .rect {
@@ -64,7 +65,7 @@ struct CardView: View {
                             Rectangle().stroke(color)
 
                         }
-                        if card.shape == .capsule {
+                        else if card.shape == .capsule {
                             Capsule().fill(color).opacity(opacity)
                             Capsule().stroke(color)
                         }
@@ -76,21 +77,11 @@ struct CardView: View {
                     
                 }
             }
+            .padding(15)
             .cardify()
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 // struct SwiftUIView_Previews: PreviewProvider {

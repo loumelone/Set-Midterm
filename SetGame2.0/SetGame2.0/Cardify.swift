@@ -18,7 +18,7 @@ struct Cardify: ViewModifier {
             RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.black, lineWidth: edgeLineWidth)
             content
             }
-        .aspectRatio(0.75, contentMode: .fit)
+        .aspectRatio(1.25, contentMode: .fit)
         .padding()
         }
 
