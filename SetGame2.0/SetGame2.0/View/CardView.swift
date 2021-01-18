@@ -55,7 +55,7 @@ struct CardView: View {
                 }
             }
             .padding(15)
-            .cardify()
+            .onCard()
 
     }
 }

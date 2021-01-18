@@ -1,5 +1,5 @@
 //
-//  Cardify.swift
+//  onCard.swift
 //  Memorize2.0
 //
 //  Created by Louis Melone on 12/29/20.
@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct Cardify: ViewModifier {
+struct oncard: ViewModifier {
     //This ViewModifier takes some 'content' and puts it on a card
     
     func body(content: Content) -> some View {
@@ -28,8 +28,8 @@ struct Cardify: ViewModifier {
 }
 
 extension View {
-    func cardify() -> some View {
-        self.modifier(Cardify())
+    func onCard() -> some View {
+        self.modifier(oncard())
     }
 }
     
