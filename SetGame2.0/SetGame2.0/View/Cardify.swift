@@ -19,7 +19,7 @@ struct Cardify: ViewModifier {
             content
             }
         .aspectRatio(1.25, contentMode: .fit)
-        .padding()
+        .padding(1.5)
         }
 
     private let cornerRadius: CGFloat = 10

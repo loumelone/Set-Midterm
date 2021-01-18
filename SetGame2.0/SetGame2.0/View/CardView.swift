@@ -1,34 +1,11 @@
 //
-//  SetGameView.swift
-//  
+//  CardView.swift
+//  SetGame2.0
 //
-//  Created by Louis Melone on 1/13/21.
+//  Created by Louis Melone on 1/18/21.
 //
 
 import SwiftUI
-
-struct SetGameView: View {
-    
-    @ObservedObject var SetVM: SetViewModel
-
-    var body: some View {
-        VStack{
-            Grid(SetVM.faceUpCards) { card in
-                CardView(card: card).onTapGesture {
-                    SetVM.choose(card: card)
-                }
-            }
-        
-            HStack {
-                Button(action: { SetVM.addThreeCards()}
-                       , label: { Text("Add 3 Cards") } )
-                
-                Button(action: { SetVM.restart()}
-                       , label: { Text("New Game") } )
-            }
-        }
-    }
-}
 
 struct CardView: View {
     var card: Game.Card
@@ -83,9 +60,3 @@ struct CardView: View {
     }
 }
 
-
-// struct SwiftUIView_Previews: PreviewProvider {
-    // static var previews: some View {
-      //  SwiftUIView()
-   // }
-// }
