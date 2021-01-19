@@ -50,16 +50,15 @@ struct CardView: View {
                             Diamond().fill(color).opacity(opacity)
                             Diamond().stroke(color)
 
-
                         }
+                        
                     }
-                    
+                    .rotationEffect(.degrees(count == 1 ? 90 : 0))
                 }
 
             }
-            .padding(15)
+            .padding(count == 1 ? 25 : 15)
             .onCard()
-
     }
 }
 
