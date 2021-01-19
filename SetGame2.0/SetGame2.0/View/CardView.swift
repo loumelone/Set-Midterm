@@ -47,12 +47,15 @@ struct CardView: View {
                             Capsule().stroke(color)
                         }
                         else {
-                            Circle().fill(color).opacity(opacity)
-                            Circle().stroke(color)
+                            Diamond().fill(color).opacity(opacity)
+                            Diamond().stroke(color)
+
+
                         }
                     }
                     
                 }
+
             }
             .padding(15)
             .onCard()
