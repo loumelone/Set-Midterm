@@ -8,13 +8,14 @@
 import Foundation
 
 extension Game {
-    struct Card: Identifiable, Equatable{
+    struct Card: Identifiable, Equatable {
         var id: Int
 
         var shape: Shape
         var shade: Shade
         var color: Color
         var count: Int
+        var isSelected: Bool = false
     
         enum Shape: CaseIterable {
             case rect

@@ -12,10 +12,17 @@ import SwiftUI
 struct oncard: ViewModifier {
     //This ViewModifier takes some 'content' and puts it on a card
     
+    var isSelected: Bool
+    
+    init(isSelected: Bool){
+        self.isSelected = isSelected
+    }
+    
     func body(content: Content) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
             RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.black, lineWidth: edgeLineWidth)
+            RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.yellow, lineWidth: 15).opacity(isSelected ? 1 : 0)
             content
             }
         .aspectRatio(1.25, contentMode: .fit)
@@ -28,8 +35,8 @@ struct oncard: ViewModifier {
 }
 
 extension View {
-    func onCard() -> some View {
-        self.modifier(oncard())
+    func onCard(isSelected: Bool) -> some View {
+        self.modifier(oncard(isSelected: isSelected))
     }
 }
     

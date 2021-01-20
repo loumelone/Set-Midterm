@@ -9,6 +9,7 @@ struct Game {
 
     mutating func choose(card: Card) {
         
+        
         if let chosenIndex: Int = faceUpCards.firstIndex(matching: card) {
             
             if selectedCards.count == 3 {
@@ -31,9 +32,11 @@ struct Game {
             }
             if let deselectCard: Int = selectedCards.firstIndex(matching: card) {
                 selectedCards.remove(object: faceUpCards[chosenIndex])
+                faceUpCards[chosenIndex].isSelected = false
             }
             else {
                 selectedCards.append(faceUpCards[chosenIndex])
+                faceUpCards[chosenIndex].isSelected = true
             }
         }
     }
@@ -69,6 +72,8 @@ struct Game {
             faceUpCards.append(inDeckCards.removeFirst())
         }
     }
+    
+    
 
     func isAllSameColor () -> Bool {
         return selectedCards[0].color == selectedCards[1].color && selectedCards[2].color == selectedCards[1].color && selectedCards[2].color == selectedCards[0].color

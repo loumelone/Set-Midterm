@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     var card: Game.Card
-    
+        
     var opacity: Double {
         if card.shade == .dark{ return 1 }
         else if card.shade == .light { return 0.5 }
@@ -58,7 +58,7 @@ struct CardView: View {
 
             }
             .padding(count == 1 ? 25 : 15)
-            .onCard()
+            .onCard(isSelected: card.isSelected)
     }
 }
 
