@@ -13,7 +13,7 @@ struct SetGameView: View {
 
     var body: some View {
         VStack{
-            Grid(SetVM.faceUpCards) { card in
+            Grid(SetVM.faceUpCards.filter{!$0.isMatched}) { card in
                 CardView(card: card).onTapGesture {
                     SetVM.choose(card: card)
                 }

@@ -34,31 +34,33 @@ struct CardView: View {
     
         @ViewBuilder
         private func body(for size: CGSize) -> some View {
-            HStack {
-                ForEach(0..<count) { index in
-                    ZStack{
-                        if card.shape == .rect {
-                            Rectangle().fill(color).opacity(opacity)
-                            Rectangle().stroke(color)
+                HStack {
+                    ForEach(0..<count) { index in
+                        ZStack{
+                            if card.shape == .rect {
+                                Rectangle().fill(color).opacity(opacity)
+                                Rectangle().stroke(color)
 
-                        }
-                        else if card.shape == .capsule {
-                            Capsule().fill(color).opacity(opacity)
-                            Capsule().stroke(color)
-                        }
-                        else {
-                            Diamond().fill(color).opacity(opacity)
-                            Diamond().stroke(color)
+                            }
+                            else if card.shape == .capsule {
+                                Capsule().fill(color).opacity(opacity)
+                                Capsule().stroke(color)
+                            }
+                            else {
+                                Diamond().fill(color).opacity(opacity)
+                                Diamond().stroke(color)
 
+                            }
+                            
                         }
-                        
+                        .rotationEffect(.degrees(count == 1 ? 90 : 0))
                     }
-                    .rotationEffect(.degrees(count == 1 ? 90 : 0))
-                }
 
+                }
+                .padding(count == 1 ? 25 : 15)
+                .onCard(isSelected: card.isSelected)
             }
-            .padding(count == 1 ? 25 : 15)
-            .onCard(isSelected: card.isSelected)
     }
-}
+
+
 

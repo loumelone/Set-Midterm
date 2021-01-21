@@ -18,26 +18,33 @@ struct Game {
                     
                     for card in selectedCards{
                         matchedCards.append(card)
-                        faceUpCards.remove(object: card)
-                        selectedCards.remove(object: card)
+                        for index in faceUpCards.indices {
+                            if card.id == faceUpCards[index].id {
+                                faceUpCards[index].isMatched = true
+                            }
                         }
+                    }
                     addthreecards()
-                    print("Set!")
+                }
+            
+                    
+                selectedCards  = []
+                for index in faceUpCards.indices {
+                    faceUpCards[index].isSelected = false
                 }
                 
-                else {
-                   selectedCards  = []
-                   print("Not a set")
-                }
             }
+    
             if let deselectCard: Int = selectedCards.firstIndex(matching: card) {
                 selectedCards.remove(object: faceUpCards[chosenIndex])
                 faceUpCards[chosenIndex].isSelected = false
             }
+            
             else {
                 selectedCards.append(faceUpCards[chosenIndex])
                 faceUpCards[chosenIndex].isSelected = true
             }
+            
         }
     }
                 
@@ -67,7 +74,7 @@ struct Game {
             }
         }
 
-        inDeckCards.shuffle()
+       // inDeckCards.shuffle()
         for _ in 0..<12{
             faceUpCards.append(inDeckCards.removeFirst())
         }

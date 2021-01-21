@@ -16,7 +16,8 @@ extension Game {
         var color: Color
         var count: Int
         var isSelected: Bool = false
-    
+        var isMatched: Bool = false
+        
         enum Shape: CaseIterable {
             case rect
             case capsule
