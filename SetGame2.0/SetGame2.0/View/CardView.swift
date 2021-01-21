@@ -12,7 +12,7 @@ struct CardView: View {
         
     var opacity: Double {
         if card.shade == .dark{ return 1 }
-        else if card.shade == .light { return 0.5 }
+        else if card.shade == .light { return 0.25 }
         else { return 0 }
     }
     
