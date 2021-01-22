@@ -6,16 +6,19 @@ struct Game {
     var selectedCards: Array<Card>
     var faceUpCards: Array<Card>
     var matchedCards: Array<Card>
+    
+    var score: Int = 0
+    var isMatchedSet: Int = 2
 
     mutating func choose(card: Card) {
-        
-        
+                
         if let chosenIndex: Int = faceUpCards.firstIndex(matching: card) {
+            
+            isMatchedSet = 2
             
             if selectedCards.count == 3 {
                 
-                if (isAllSameColor() || isAllDifferentColor()) && (isAllSameShade() || isAllDifferentShade()) && (isAllSameShape() || isAllDifferentShape())  && (isAllSameCount() || isAllDifferentCount()) {
-                    
+                if SetIsMatched() {
                     for card in selectedCards{
                         matchedCards.append(card)
                         for index in faceUpCards.indices {
@@ -35,7 +38,7 @@ struct Game {
                 
             }
     
-            if let deselectCard: Int = selectedCards.firstIndex(matching: card) {
+            if let deselectCard: Int = selectedCards.firstIndex(matching: card){
                 selectedCards.remove(object: faceUpCards[chosenIndex])
                 faceUpCards[chosenIndex].isSelected = false
             }
@@ -43,6 +46,17 @@ struct Game {
             else {
                 selectedCards.append(faceUpCards[chosenIndex])
                 faceUpCards[chosenIndex].isSelected = true
+            }
+            
+            if selectedCards.count == 3 {
+                if SetIsMatched(){
+                    score = score + 3
+                    isMatchedSet = 1
+                }
+                else{
+                    score = score - 5
+                    isMatchedSet = 0
+                }
             }
             
         }
@@ -74,7 +88,7 @@ struct Game {
             }
         }
 
-        inDeckCards.shuffle()
+//        inDeckCards.shuffle()
         for _ in 0..<12{
             faceUpCards.append(inDeckCards.removeFirst())
         }
@@ -113,6 +127,11 @@ struct Game {
 
     func isAllDifferentCount () -> Bool {
         return selectedCards.map{ $0.count}.unique().count == 3
+    }
+    
+    func SetIsMatched () -> Bool {
+        return (isAllSameColor() || isAllDifferentColor()) && (isAllSameShade() || isAllDifferentShade()) && (isAllSameShape() || isAllDifferentShape())  && (isAllSameCount() || isAllDifferentCount())
+        
     }
 
 

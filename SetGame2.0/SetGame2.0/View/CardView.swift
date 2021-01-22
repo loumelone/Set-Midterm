@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CardView: View {
+    
+    var randomOfffScreenLocation: CGSize{
+        let angle : Double = Double.random(in: 0..<(2 * Double.pi))
+        return CGSize(width: 1000*cos(angle), height:1000*sin(angle))
+    }
     var card: Game.Card
-        
+            
     var opacity: Double {
         if card.shade == .dark{ return 1 }
         else if card.shade == .light { return 0.25 }
@@ -29,7 +34,7 @@ struct CardView: View {
     var body: some View {
         GeometryReader { geometry in
             self.body(for: geometry.size)
-        }
+        }.transition(AnyTransition.offset(randomOfffScreenLocation))
     }
     
         @ViewBuilder
