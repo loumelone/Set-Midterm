@@ -17,25 +17,7 @@ struct Game {
             isMatchedSet = 2
             
             if selectedCards.count == 3 {
-                
-                if SetIsMatched() {
-                    for card in selectedCards{
-                        matchedCards.append(card)
-                        for index in faceUpCards.indices {
-                            if card.id == faceUpCards[index].id {
-                                faceUpCards[index].isMatched = true
-                            }
-                        }
-                    }
-                    addthreecards()
-                }
-            
-                    
-                selectedCards  = []
-                for index in faceUpCards.indices {
-                    faceUpCards[index].isSelected = false
-                }
-                
+                playgame()
             }
     
             if let deselectCard: Int = selectedCards.firstIndex(matching: card){
@@ -64,11 +46,48 @@ struct Game {
                 
     mutating func addthreecards () -> Void {
         
-        for _ in 1...3 {
-            faceUpCards.append(inDeckCards.removeFirst())
+        if inDeckCards.count == 0 { return }
+        
+        if selectedCards.count == 3 {
+            playgame()
+        }
+        
+        else {
+            for _ in 1...3 {
+                faceUpCards.append(inDeckCards.removeFirst())
+            }
         }
         
     }
+    
+    mutating func playgame () -> Void {
+            
+            if SetIsMatched() {
+                for card in selectedCards{
+                    matchedCards.append(card)
+                    for index in faceUpCards.indices {
+                        if card.id == faceUpCards[index].id {
+                            faceUpCards[index].isMatched = true
+                        }
+                    }
+                }
+                selectedCards  = []
+                addthreecards()
+            }
+            
+            else {
+                selectedCards  = []
+                addthreecards()
+            }
+                
+            for index in faceUpCards.indices {
+                faceUpCards[index].isSelected = false
+            }
+            
+        
+        }
+        
+    
 
 
 
@@ -91,7 +110,7 @@ struct Game {
             }
         }
 
-        inDeckCards.shuffle()
+//        inDeckCards.shuffle()
         for _ in 0..<12{
             faceUpCards.append(inDeckCards.removeFirst())
         }
