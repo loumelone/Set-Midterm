@@ -65,7 +65,7 @@ struct CardView: View {
 
                 }
                 .padding((4 - CGFloat(count)) * 4)
-                .onCard(isSelected: card.isSelected)
+                .onCard(isSelected: card.isSelected, color: color)
             }
     
     

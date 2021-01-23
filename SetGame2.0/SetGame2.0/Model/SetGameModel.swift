@@ -63,11 +63,14 @@ struct Game {
     }
                 
     mutating func addthreecards () -> Void {
+        
         for _ in 1...3 {
             faceUpCards.append(inDeckCards.removeFirst())
         }
-
+        
     }
+
+
 
     init(){
         
