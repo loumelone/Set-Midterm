@@ -55,10 +55,10 @@ struct SetGameView: View {
                     Text("This is a SET!")
                 }
                 else if SetVM.isMatchedSet == 0{
-                    Text("This is not a set")
+                    Text("Not a Set")
                 }
                 else{
-                    Text("Select Three Cards to Make a Set")
+                    Text("Choose Three Cards")
                 }
             }
             

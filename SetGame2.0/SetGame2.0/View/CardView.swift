@@ -34,7 +34,9 @@ struct CardView: View {
     var body: some View {
         GeometryReader { geometry in
             self.body(for: geometry.size)
-        }.transition(AnyTransition.offset(randomOfffScreenLocation))
+        }
+        .transition(AnyTransition.offset(randomOfffScreenLocation))
+        .scaleEffect(card.isSelected ? 1.1 : 1)
     }
     
         @ViewBuilder
@@ -43,28 +45,31 @@ struct CardView: View {
                     ForEach(0..<count) { index in
                         ZStack{
                             if card.shape == .rect {
-                                Rectangle().fill(color).opacity(opacity)
-                                Rectangle().stroke(color)
+                                Rectangle().fill(color).opacity(opacity).aspectRatio(1.2, contentMode: .fit)
+                                Rectangle().stroke(color).aspectRatio(1.2, contentMode: .fit)
 
                             }
                             else if card.shape == .capsule {
-                                Capsule().fill(color).opacity(opacity)
-                                Capsule().stroke(color)
+                                Capsule().fill(color).opacity(opacity).aspectRatio(1.5, contentMode: .fit)
+                                Capsule().stroke(color).aspectRatio(1.5, contentMode: .fit)
                             }
                             else {
-                                Diamond().fill(color).opacity(opacity)
-                                Diamond().stroke(color)
+                                Diamond().fill(color).opacity(opacity).aspectRatio(1.4, contentMode: .fit)
+                                Diamond().stroke(color).aspectRatio(1.4, contentMode: .fit)
 
                             }
                             
                         }
-                        .rotationEffect(.degrees(count == 1 ? 90 : 0))
+                        
                     }
 
                 }
-                .padding(count == 1 ? 25 : 15)
+                .padding((4 - CGFloat(count)) * 4)
                 .onCard(isSelected: card.isSelected)
             }
+    
+    
+
     }
 
 
