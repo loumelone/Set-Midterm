@@ -13,8 +13,8 @@ struct SetGameView: View {
 
     var body: some View {
         VStack{
-            Grid(SetVM.faceUpCards) { card in
-                CardView().onTapGesture {
+            Grid(SetVM.faceUpCards.filter{!$0.isMatched}) { card in
+                CardView(card: card).onTapGesture {
                     SetVM.choose(card: card)
                 }
             }
@@ -29,26 +29,6 @@ struct SetGameView: View {
         }
     }
 }
-
-struct CardView: View {
-    
-    var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .fill(Color.blue)
-            .padding()
-            .aspectRatio(0.75, contentMode: .fit)
-        }
-    
-}
-
-
-
-
-
-
-
-
-
 
 
 

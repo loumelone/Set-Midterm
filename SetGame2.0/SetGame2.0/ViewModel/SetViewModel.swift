@@ -37,6 +37,7 @@ class SetViewModel: ObservableObject {
         return game.selectedCards
     }
     
+    
     //MARK: - Intent(s)
     
     func choose(card: Game.Card){
@@ -52,3 +53,4 @@ class SetViewModel: ObservableObject {
     }
     
 }
+
