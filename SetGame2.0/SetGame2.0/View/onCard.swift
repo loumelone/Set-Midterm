@@ -23,8 +23,8 @@ struct oncard: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
-            RoundedRectangle(cornerRadius: cornerRadius).stroke(color, lineWidth: edgeLineWidth)
-            RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.yellow, lineWidth: 15).opacity(isSelected ? 0.5 : 0)
+            RoundedRectangle(cornerRadius: cornerRadius).stroke(color, lineWidth: edgeLineWidth).opacity(isSelected ? 0 : 1)
+            RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.yellow, lineWidth: 7).opacity(isSelected ? 0.5 : 0)
             content
             }
         .aspectRatio(1, contentMode: .fit)
