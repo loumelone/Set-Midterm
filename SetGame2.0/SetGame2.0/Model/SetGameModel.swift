@@ -17,7 +17,7 @@ struct Game {
             isMatchedSet = 2
             
             if selectedCards.count == 3 {
-                playgame()
+                checkForSet()
             }
     
             if let deselectCard: Int = selectedCards.firstIndex(matching: card){
@@ -49,7 +49,7 @@ struct Game {
         if inDeckCards.count == 0 { return }
         
         if selectedCards.count == 3 {
-            playgame()
+            checkForSet()
         }
         
         else {
@@ -60,7 +60,7 @@ struct Game {
         
     }
     
-    mutating func playgame () -> Void {
+    mutating func checkForSet () -> Void {
             
             if SetIsMatched() {
                 for card in selectedCards{
@@ -110,7 +110,7 @@ struct Game {
             }
         }
 
-//        inDeckCards.shuffle()
+        inDeckCards.shuffle()
         for _ in 0..<12{
             faceUpCards.append(inDeckCards.removeFirst())
         }

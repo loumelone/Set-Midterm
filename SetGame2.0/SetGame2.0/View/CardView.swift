@@ -59,12 +59,12 @@ struct CardView: View {
 
                             }
                             
-                        }
+                        }.padding((4 - CGFloat(count)) * 4 * min(size.width, size.height) * 0.006)
+
                         
                     }
 
                 }
-                .padding((4 - CGFloat(count)) * 4)
                 .onCard(isSelected: card.isSelected, color: color)
             }
     
