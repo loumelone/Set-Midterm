@@ -41,6 +41,10 @@ struct CardView: View {
     
         @ViewBuilder
         private func body(for size: CGSize) -> some View {
+            
+            let padding: CGFloat = count == 1 ? ((4 - CGFloat(count)) * 7 * min(size.width, size.height) * 0.007) : ((4 - CGFloat(count)) * 4 * min(size.width, size.height) * 0.006)
+            
+
                 HStack {
                     ForEach(0..<count) { index in
                         ZStack{
@@ -59,15 +63,13 @@ struct CardView: View {
 
                             }
                             
-                        }.padding((4 - CGFloat(count)) * 4 * min(size.width, size.height) * 0.006)
-
+                        }.padding(padding)
                         
                     }
 
                 }
                 .onCard(isSelected: card.isSelected, color: color)
             }
-    
     
 
     }
