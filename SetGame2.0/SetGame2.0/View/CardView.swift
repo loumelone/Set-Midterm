@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct CardView: View {
+    
+    var randomOfffScreenLocation: CGSize{
+        let angle : Double = Double.random(in: 0..<(2 * Double.pi))
+        return CGSize(width: 1000*cos(angle), height:1000*sin(angle))
+    }
     var card: Game.Card
-        
+            
     var opacity: Double {
         if card.shade == .dark{ return 1 }
-        else if card.shade == .light { return 0.5 }
+        else if card.shade == .light { return 0.25 }
         else { return 0 }
     }
     
@@ -30,36 +35,43 @@ struct CardView: View {
         GeometryReader { geometry in
             self.body(for: geometry.size)
         }
+        .transition(AnyTransition.offset(randomOfffScreenLocation))
+        .scaleEffect(card.isSelected ? 1.1 : 1)
     }
     
         @ViewBuilder
         private func body(for size: CGSize) -> some View {
+            
+            let padding: CGFloat = count == 1 ? ((4 - CGFloat(count)) * 7 * min(size.width, size.height) * 0.007) : ((4 - CGFloat(count)) * 4 * min(size.width, size.height) * 0.006)
+            
+
                 HStack {
                     ForEach(0..<count) { index in
                         ZStack{
                             if card.shape == .rect {
-                                Rectangle().fill(color).opacity(opacity)
-                                Rectangle().stroke(color)
+                                Rectangle().fill(color).opacity(opacity).aspectRatio(1.2, contentMode: .fit)
+                                Rectangle().stroke(color).aspectRatio(1.2, contentMode: .fit)
 
                             }
                             else if card.shape == .capsule {
-                                Capsule().fill(color).opacity(opacity)
-                                Capsule().stroke(color)
+                                Capsule().fill(color).opacity(opacity).aspectRatio(1.5, contentMode: .fit)
+                                Capsule().stroke(color).aspectRatio(1.5, contentMode: .fit)
                             }
                             else {
-                                Diamond().fill(color).opacity(opacity)
-                                Diamond().stroke(color)
+                                Diamond().fill(color).opacity(opacity).aspectRatio(1.4, contentMode: .fit)
+                                Diamond().stroke(color).aspectRatio(1.4, contentMode: .fit)
 
                             }
                             
-                        }
-                        .rotationEffect(.degrees(count == 1 ? 90 : 0))
+                        }.padding(padding)
+                        
                     }
 
                 }
-                .padding(count == 1 ? 25 : 15)
-                .onCard(isSelected: card.isSelected)
+                .onCard(isSelected: card.isSelected, color: color)
             }
+    
+
     }
 
 

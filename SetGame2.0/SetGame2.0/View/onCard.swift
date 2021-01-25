@@ -13,30 +13,32 @@ struct oncard: ViewModifier {
     //This ViewModifier takes some 'content' and puts it on a card
     
     var isSelected: Bool
+    var color: Color
     
-    init(isSelected: Bool){
+    init(isSelected: Bool, color: Color){
         self.isSelected = isSelected
+        self.color = color
     }
     
     func body(content: Content) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
-            RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.black, lineWidth: edgeLineWidth)
-            RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.yellow, lineWidth: 15).opacity(isSelected ? 1 : 0)
+            RoundedRectangle(cornerRadius: cornerRadius).stroke(color, lineWidth: edgeLineWidth).opacity(isSelected ? 0 : 1)
+            RoundedRectangle(cornerRadius: cornerRadius).stroke(Color.yellow, lineWidth: 7).opacity(isSelected ? 0.5 : 0)
             content
             }
-        .aspectRatio(1.25, contentMode: .fit)
-        .padding(1.5)
+        .aspectRatio(1, contentMode: .fit)
+        .padding(10)
         }
 
     private let cornerRadius: CGFloat = 10
-    private let edgeLineWidth: CGFloat = 3
+    private let edgeLineWidth: CGFloat = 1
     
 }
 
 extension View {
-    func onCard(isSelected: Bool) -> some View {
-        self.modifier(oncard(isSelected: isSelected))
+    func onCard(isSelected: Bool, color: Color) -> some View {
+        self.modifier(oncard(isSelected: isSelected, color: color))
     }
 }
     

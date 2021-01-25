@@ -28,15 +28,7 @@ class SetViewModel: ObservableObject {
     var inDeckCards: Array<Game.Card>{
         return game.inDeckCards
     }
-    
-    var matchedCards: Array<Game.Card>{
-        return game.matchedCards
-    }
-    
-    var selectedCards: Array<Game.Card>{
-        return game.selectedCards
-    }
-    
+
     
     //MARK: - Intent(s)
     
@@ -50,6 +42,16 @@ class SetViewModel: ObservableObject {
     
     func addThreeCards() {
         return game.addthreecards()
+    }
+    
+    //MARK: - Score and Match Notifications
+    
+    var score: Int{
+        return game.score
+    }
+    
+    var isMatchedSet: Int {
+        return game.isMatchedSet
     }
     
 }
